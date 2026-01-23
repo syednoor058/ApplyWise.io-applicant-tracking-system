@@ -20,18 +20,18 @@
 
 html,
 body {
-  @apply bg-white;
+  background: linear-gradient(180deg, #F9FAFB 0%, #EEF4FF 100%);
 }
 
 main {
-  @apply min-h-screen pt-10;
+  @apply min-h-screen pt-2 md:pt-5 px-4 md:px-10 xl:px-20 text-[#334155] overflow-hidden;
 }
 h1 {
-  @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+  @apply text-3xl md:text-4xl lg:text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
 }
 
 h2 {
-  @apply max-sm:text-xl text-3xl text-dark-200;
+  @apply text-base md:text-xl lg:text-2xl;
 }
 
 label {
@@ -51,13 +51,13 @@ form {
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent bg-linear-to-r from-[#4F7BFF] via-[#0F172A] to-[#4F7BFF];
   }
   .gradient-border {
-    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+    @apply bg-linear-to-t from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
   }
   .primary-button {
-    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
+    @apply primary-gradient hover:primary-gradient-hover text-white rounded-full px-4 py-2 cursor-pointer w-full text-sm md:text-base;
   }
   .resume-nav {
     @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
@@ -72,24 +72,24 @@ form {
     @apply flex flex-row items-center gap-2 border border-gray-200 rounded-lg p-2 shadow-sm;
   }
   .auth-button {
-    @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;
+    @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-150 max-md:w-full text-3xl font-semibold text-white;
   }
   .main-section {
-    @apply flex flex-col items-center gap-8 pt-12 max-sm:mx-2 mx-15 pb-5;
+    @apply flex flex-col items-center gap-8 pt-6 md:pt-8 lg:pt-12 pb-5;
   }
   .page-heading {
-    @apply flex flex-col items-center gap-8 max-w-4xl text-center max-sm:gap-4;
+    @apply flex flex-col items-center gap-5 lg:gap-7 max-w-4xl text-center;
   }
   .resumes-section {
-    @apply w-full px-4 md:px-10 xl:px-15 gap-4 md:gap-6 xl:gap-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+    @apply w-full py-6 md:py-10 xl:py-20 gap-4 md:gap-6 xl:gap-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
   }
 
   .resume-card {
-    @apply flex flex-col gap-8 bg-white rounded-2xl p-4;
+    @apply flex flex-col gap-3 bg-white rounded-2xl p-2.5 md:p-4;
   }
 
   .resume-card-header {
-    @apply flex flex-row gap-2 justify-between min-h-[110px] max-sm:flex-col items-center max-md:justify-center max-md:items-center;
+    @apply flex flex-row gap-2 justify-between items-center;
   }
 
   .feedback-section {
@@ -97,7 +97,7 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+    @apply flex flex-row justify-between items-center bg-white rounded-2xl p-2 md:p-4 w-full mx-auto shadow-md;
   }
 
   .score-badge {
@@ -112,7 +112,7 @@ form {
     @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px];
   }
   .uploader-selected-file {
-    @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
+    @apply flex flex-row gap-0.5 items-center justify-between p-1.5 bg-gray-50 rounded-2xl;
   }
 }
 
@@ -121,20 +121,20 @@ form {
 }
 
 @utility text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+  @apply bg-clip-text text-transparent bg-linear-to-r from-[#4F7BFF] via-[#0F172A] to-[#4F7BFF]
 }
 
 @utility gradient-hover {
-  @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200;
+  @apply bg-linear-to-b from-light-blue-100 to-light-blue-200;
 }
 
 @utility primary-gradient {
-  background: linear-gradient(to bottom, #8e98ff, #606beb);
+  background: linear-gradient(135deg, #4F7BFF 0%, #22D3EE 100%);
   box-shadow: 0px 74px 21px 0px #6678ef00;
 }
 
 @utility primary-gradient-hover {
-  background: linear-gradient(to bottom, #717dff, #4957eb);
+  background: linear-gradient(135deg, #3F63E6 0%, #0EA5E9 100%);
 }
 
 @utility inset-shadow {

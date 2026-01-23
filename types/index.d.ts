@@ -1,6 +1,7 @@
 interface Resume {
     id: string;
     companyName?: string;
+    companyLogo?: string;
     jobTitle?: string;
     imagePath: string;
     resumePath: string;

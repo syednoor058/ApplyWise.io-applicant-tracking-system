@@ -2,6 +2,7 @@ export const resumes: Resume[] = [
     {
         id: "1",
         companyName: "Google",
+        companyLogo: "/logos/google.svg",
         jobTitle: "Frontend Developer",
         imagePath: "/images/resume_01.png",
         resumePath: "/resumes/resume-1.pdf",
@@ -32,6 +33,7 @@ export const resumes: Resume[] = [
     {
         id: "2",
         companyName: "Microsoft",
+        companyLogo: "/logos/microsoft.svg",
         jobTitle: "Cloud Engineer",
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
@@ -62,6 +64,7 @@ export const resumes: Resume[] = [
     {
         id: "3",
         companyName: "Apple",
+        companyLogo: "/logos/apple.svg",
         jobTitle: "iOS Developer",
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
@@ -91,8 +94,9 @@ export const resumes: Resume[] = [
     },
     {
         id: "4",
-        companyName: "Google",
-        jobTitle: "Frontend Developer",
+        companyName: "Netflix",
+        companyLogo: "/logos/netflix.svg",
+        jobTitle: "Human Resources Manager",
         imagePath: "/images/resume_01.png",
         resumePath: "/resumes/resume-1.pdf",
         feedback: {
@@ -121,8 +125,9 @@ export const resumes: Resume[] = [
     },
     {
         id: "5",
-        companyName: "Microsoft",
-        jobTitle: "Cloud Engineer",
+        companyName: "Facebook",
+        companyLogo: "/logos/facebook.svg",
+        jobTitle: "Senior Product Manager",
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
         feedback: {
@@ -151,8 +156,9 @@ export const resumes: Resume[] = [
     },
     {
         id: "6",
-        companyName: "Apple",
-        jobTitle: "iOS Developer",
+        companyName: "Amazon",
+        companyLogo: "/logos/amazon.svg",
+        jobTitle: "Database Administrator",
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
         feedback: {
