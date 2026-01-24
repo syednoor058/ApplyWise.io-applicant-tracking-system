@@ -5,6 +5,26 @@ import ResumeCard from "~/components/ResumeCard";
 import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate } from "react-router";
 import { useEffect } from "react";
+import HowItWorks from "~/components/HowItWorks";
+import Feature from "~/components/Feature";
+import SectionTag from "~/components/SectionTag";
+import {
+  CogsIcon,
+  GuardIcon,
+  HalfStarIcon,
+  HandShakeIcon,
+  InfoIcon,
+  MagicIcon,
+  MuscleIcon,
+  QuestionIcon,
+  ResumeIcon,
+  ReviewIcon,
+  RightArrowIcon,
+  ScoreIcon,
+  StarIcon,
+} from "~/components/Icons";
+import FaqAccordion from "~/components/FaqAccordion";
+import { Footer } from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,31 +41,13 @@ export default function Home() {
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-contain bg-no-repeat min-h-screen">
       <Navbar />
-      <div className="flex flex-col gap-20 md:gap-24 xl:gap-36 pt-8 md:pt-10 lg:pt-20">
+      <div className="flex flex-col gap-20 md:gap-24 xl:gap-36 py-8 md:py-10 lg:py-20">
         <section className="main-section">
           <div className="page-heading">
-            <p className="py-1.5 px-4 rounded-xl border-2 border-[#4F7BFF] bg-[#4F7BFF]/20 flex gap-2 items-center text-sm md:text-base">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="#FFE300"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-sparkles-icon lucide-sparkles"
-                >
-                  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-                  <path d="M20 2v4" />
-                  <path d="M22 4h-4" />
-                  <circle cx="4" cy="20" r="2" />
-                </svg>
-              </span>
-              AI-Powered Full Free Resume Intelligence
-            </p>
+            <SectionTag
+              icon={<MagicIcon />}
+              text="AI-Powered Full Free Resume Intelligence"
+            />
             <h1>Match Your Resume to the Job — Before Recruiters Do</h1>
             <h2>
               <span className="font-semibold">ApplyWise</span> analyzes your
@@ -59,24 +61,7 @@ export default function Home() {
                 className="primary-button px-7 py-3 text-xl animate-in fade-in duration-1000 flex gap-2 items-center"
               >
                 <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-file-text-icon lucide-file-text"
-                  >
-                    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-                    <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-                    <path d="M10 9H8" />
-                    <path d="M16 13H8" />
-                    <path d="M16 17H8" />
-                  </svg>
+                  <ResumeIcon />
                 </span>
                 Analyze Resume
               </Link>
@@ -86,21 +71,7 @@ export default function Home() {
               >
                 How It Works
                 <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-arrow-right-icon lucide-arrow-right"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
+                  <RightArrowIcon />
                 </span>
               </Link>
             </div>
@@ -112,79 +83,100 @@ export default function Home() {
               className="w-full h-auto"
             />
           </div>
-        </section>
-        <section className="text-center flex flex-col justify-center items-center">
-          <h2>Built for modern job seekers who want clarity, not guesswork.</h2>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 lg:gap-6 justify-center items-center mt-6 md:mt-7 lg:mt-14 mb-6 md:mb-4 lg:mb-8">
-            <div className="font-semibold text-sm lg:text-lg">EXCELLENT</div>
-            <div className="flex flex-row">
-              {Array.from({ length: 4 }, (_, index) => (
-                <svg
-                  key={index}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#00B67A"
-                  stroke="#00B67A"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-star-icon lucide-star"
-                >
-                  <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
-                </svg>
-              ))}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#00B67A" stroke="#00B67A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-star-half-icon lucide-star-half"><path d="M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2"/></svg>
+          <div className="text-center flex flex-col justify-center items-center">
+            <div className="flex flex-wrap gap-x-4 gap-y-1 lg:gap-6 justify-center items-center mb-6 md:mb-4 lg:mb-8">
+              <div className="font-semibold text-sm lg:text-lg">EXCELLENT</div>
+              <div className="flex flex-row">
+                {Array.from({ length: 4 }, (_, index) => (
+                  <StarIcon key={index} />
+                ))}
+                <HalfStarIcon />
+              </div>
+              <div className="">17 reviews on</div>
+              <div className=" relative">
+                <img
+                  src="/logos/trustpilot.svg"
+                  alt="trustpilot-reviews"
+                  className="h-7 w-auto"
+                />
+              </div>
             </div>
-            <div className="">17 reviews on</div>
-            <div className=" relative">
+            <div className="flex flex-wrap gap-6 lg:gap-10 justify-center items-center">
               <img
-                src="/logos/trustpilot.svg"
-                alt="trustpilot-reviews"
-                className="h-7 w-auto"
+                src="/logos/Google-Logo.svg"
+                alt="google-logo"
+                className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+              />
+
+              <img
+                src="/logos/Amazon-Logo.svg"
+                alt="amazon-logo"
+                className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+              />
+              <img
+                src="/logos/Microsoft-Logo.svg"
+                alt="microsoft-logo"
+                className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+              />
+              <img
+                src="/logos/Facebook-Logo.svg"
+                alt="facebook-logo"
+                className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+              />
+              <img
+                src="/logos/IBM-Logo.svg"
+                alt="ibm-logo"
+                className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+              />
+              <img
+                src="/logos/Netflix-Logo.svg"
+                alt="netflix-logo"
+                className="h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
               />
             </div>
           </div>
-          <div className="flex flex-wrap gap-6 lg:gap-10 justify-center items-center">
-            <img
-              src="/logos/Google-Logo.svg"
-              alt="google-logo"
-              className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+        </section>
+        <section className="w-full flex flex-col justify-center items-center">
+          <div className="page-heading">
+            <SectionTag icon={<HandShakeIcon />} text="What You Get" />
+            <h1 className="text-center">
+              Everything You Need
+              <br />
+              to Apply Smarter
+            </h1>
+          </div>
+          <div className="w-full grid grid-cols-4 gap-4 lg:gap-7 mt-6 md:mt-8 lg:mt-14">
+            <Feature
+              icon={<ScoreIcon />}
+              title="ATS Compatibility Score"
+              description="See how well your resume performs against automated screening systems used by employers."
             />
-
-            <img
-              src="/logos/Amazon-Logo.svg"
-              alt="amazon-logo"
-              className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+            <Feature
+              icon={<MuscleIcon />}
+              title="Skill Match Analysis"
+              description="Identify missing or underrepresented skills compared to the job role and description very precisely."
             />
-            <img
-              src="/logos/Microsoft-Logo.svg"
-              alt="microsoft-logo"
-              className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+            <Feature
+              icon={<ReviewIcon />}
+              title="Content & Structure Review"
+              description="Get feedback on resume sections, formatting, and clarity to improve readability and impact."
             />
-            <img
-              src="/logos/Facebook-Logo.svg"
-              alt="facebook-logo"
-              className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
-            />
-            <img
-              src="/logos/IBM-Logo.svg"
-              alt="ibm-logo"
-              className="h-5 lg:h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
-            />
-            <img
-              src="/logos/Netflix-Logo.svg"
-              alt="netflix-logo"
-              className="h-8 w-auto grayscale hover:grayscale-0 transition-all ease-in-out"
+            <Feature
+              icon={<InfoIcon />}
+              title="Tone & Style Insights"
+              description="Ensure your resume sounds professional, confident, and aligned with industry expectations."
             />
           </div>
         </section>
         {resumes.length > 0 && (
           <section className="flex flex-col justify-center items-center">
             <div className="page-heading">
+              <SectionTag
+                icon={<GuardIcon />}
+                text="Privacy-first Resume Processing"
+              />
               <h1 className="text-center">
-                Report That Shows the Why, Not Just the Score
+                Report That Enhances Your Presence
               </h1>
               <h2 className="text-center">
                 No vague scores. No generic advice. Just clear feedback that
@@ -199,38 +191,68 @@ export default function Home() {
             </div>
           </section>
         )}
-        <section className="w-full flex flex-col justify-center items-center">
-          <div className="page-heading">
-            <p className="py-1.5 px-4 rounded-xl border-2 border-[#4F7BFF] bg-[#4F7BFF]/20 flex gap-2 items-center text-sm md:text-base">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="#FFE300"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  className="lucide lucide-sparkles-icon lucide-sparkles"
-                >
-                  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-                  <path d="M20 2v4" />
-                  <path d="M22 4h-4" />
-                  <circle cx="4" cy="20" r="2" />
-                </svg>
-              </span>
-              How It Works?
-            </p>
-              <h1 className="text-center">
-                From Upload to Insight in Minutes
+        <section className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 justify-center items-center">
+          <div className="w-full lg:w-[60%] flex flex-col gap-6 md:gap-8 lg:gap-10">
+            <div className="page-heading lg:items-start!">
+              <SectionTag icon={<CogsIcon />} text="How It Works" />
+
+              <h1 className="text-center lg:text-start">
+                From Upload to Insight
+                <br />
+                in Minutes
               </h1>
-              <h2 className="text-center">
-                <span className="font-medium">ApplyWise</span> is designed to be straightforward. No complex setup, no confusing steps. You provide the context, and the system analyzes your resume the same way an ATS would — then translates the results into clear, actionable feedback.
+              <h2 className="text-center lg:text-start">
+                <span className="font-medium">ApplyWise</span> is designed to be
+                straightforward. No complex setup, no confusing steps. You
+                provide the context, and the system analyzes your resume the
+                same way an ATS would — then translates the results into clear,
+                actionable feedback.
               </h2>
             </div>
+            <HowItWorks />
+          </div>
+          <div className="w-full lg:w-[40%] h-full bg-gray-300"></div>
         </section>
+        <section className="w-full flex flex-col justify-center items-center">
+          <div className="page-heading mb-6 md:mb-8 lg:mb-10">
+            <SectionTag icon={<QuestionIcon />} text="FAQ" />
+
+            <h1 className="text-center">Frequiently Asked Questions</h1>
+          </div>
+          <div className="flex flex-col md:flex-row gap-2 md:gap-6 lg:gap-10">
+            <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-4">
+              <FaqAccordion
+                question="1. How accurate is the ATS score?"
+                answer="The ATS score is calculated by analyzing how closely your resume aligns with a specific job description. It reflects common ATS screening factors such as keyword relevance, structure, formatting, and overall clarity. While no tool can guarantee outcomes, the score gives a realistic indication of how an ATS may evaluate your resume."
+              />
+              <FaqAccordion
+                question="2. Do I need a different analysis for every job application?"
+                answer="Yes. Each job description has different requirements, keywords, and expectations. ApplyWise analyzes your resume against the specific role you provide, ensuring the feedback is tailored to that position rather than being generic."
+              />
+              <FaqAccordion
+                question="3. Is my resume data safe and private?"
+                answer="Yes. Your files are securely handled through Puter. ApplyWise does not share or sell your data, and you remain in control of your uploaded files and analysis history at all times."
+              />
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-4">
+              <FaqAccordion
+                question="4. What type of resumes does ApplyWise support?"
+                answer="ApplyWise currently supports PDF resumes. This format ensures accurate text extraction and consistent analysis across different resume layouts and designs."
+              />
+              <FaqAccordion
+                question="5. Does ApplyWise rewrite my resume for me?"
+                answer="No. ApplyWise focuses on analysis and guidance. It highlights gaps, explains issues, and suggests improvements, allowing you to make informed changes while keeping your resume authentic and personalized."
+              />
+              <FaqAccordion
+                question="6. Can ApplyWise guarantee interview calls or job offers?"
+                answer="No tool can guarantee interview calls or job offers. ApplyWise is designed to help you optimize your resume for ATS screening and relevance, increasing your chances of being shortlisted—but final decisions always depend on recruiters."
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="w-screen -mx-4 md:-mx-10 xl:-mx-20">
+        <Footer />
       </div>
     </main>
   );
