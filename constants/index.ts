@@ -97,7 +97,7 @@ export const resumes: Resume[] = [
         companyName: "Netflix",
         companyLogo: "/logos/netflix.svg",
         jobTitle: "Human Resources Manager",
-        imagePath: "/images/resume_01.png",
+        imagePath: "/images/resume_04.png",
         resumePath: "/resumes/resume-1.pdf",
         feedback: {
             overallScore: 85,
@@ -128,7 +128,7 @@ export const resumes: Resume[] = [
         companyName: "Facebook",
         companyLogo: "/logos/facebook.svg",
         jobTitle: "Senior Product Manager",
-        imagePath: "/images/resume_02.png",
+        imagePath: "/images/resume_05.png",
         resumePath: "/resumes/resume-2.pdf",
         feedback: {
             overallScore: 55,
@@ -159,7 +159,7 @@ export const resumes: Resume[] = [
         companyName: "Amazon",
         companyLogo: "/logos/amazon.svg",
         jobTitle: "Database Administrator",
-        imagePath: "/images/resume_03.png",
+        imagePath: "/images/resume_06.png",
         resumePath: "/resumes/resume-3.pdf",
         feedback: {
             overallScore: 75,

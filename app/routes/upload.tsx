@@ -6,6 +6,21 @@ import Navbar from "~/components/Navbar";
 import { convertPdfToImage } from "../lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
 import { generateUUID } from "~/lib/utils";
+import { Footer } from "~/components/Footer";
+import SectionTag from "~/components/SectionTag";
+import { MagicIcon } from "~/components/Icons";
+import type { Route } from "./+types/upload";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "ATS Resume Checker – Upload Your Resume | ApplyWise" },
+    {
+      name: "description",
+      content:
+        "Check how your resume performs against ATS systems. Upload your resume and job details to get role-specific insights and improvement tips.",
+    },
+  ];
+}
 
 const upload = () => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -33,16 +48,17 @@ const upload = () => {
 
     setStatusText("Uploading the document...");
     const uploadedFile = await fs.upload([file]);
-    if (!uploadedFile) return setStatusText("Error: Failed to upload the document!");
+    if (!uploadedFile)
+      return setStatusText("Error: Failed to upload the document!");
 
-    setStatusText("Converting to image...");
+    setStatusText("Extracting the information...");
     const imageFile = await convertPdfToImage(file);
     if (!imageFile.file)
-      return setStatusText("Error: Failed to convert PDF to image");
+      return setStatusText("Error: Failed to extract the information");
 
-    setStatusText("Uploading the image...");
+    setStatusText("Analyzing the data...");
     const uploadedImage = await fs.upload([imageFile.file]);
-    if (!uploadedImage) return setStatusText("Error: Failed to upload image");
+    if (!uploadedImage) return setStatusText("Error: Failed to analyze the data");
 
     setStatusText("Preparing data...");
     const uuid = generateUUID();
@@ -57,7 +73,7 @@ const upload = () => {
     };
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
-    setStatusText("Analyzing...");
+    setStatusText("Almost there...");
 
     const feedback = await ai.feedback(
       uploadedFile.path,
@@ -99,19 +115,23 @@ const upload = () => {
   }, [auth.isAuthenticated]);
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main className="bg-[url('/images/bg-main.svg')] bg-cover flex flex-col gap-10 md:gap-14 lg:gap-24">
       <Navbar />
-      <section className="main-section pb-10 md:pb-14 xl:pb-20">
+      <section className="main-section">
         <div className="page-heading">
-          <h1>Upload Your Resume</h1>
+          <SectionTag
+              icon={<MagicIcon />}
+              text="Start with the Role You’re Applying For"
+            />
+          <h1>Analyse Your Resume with the Power of AI</h1>
           {isProcessing ? (
-            <>
-              <h2>{statusText}</h2>
-              <img src="/images/resume-scan.gif" className="w-full" />
-            </>
+            <div className="w-full h-full relative flex justify-center items-center">
+              <h2 className="animate-pulse absolute z-20 inset-0 top-3">{statusText}</h2>
+              <img src="/images/resume-scan.gif" className="w-72 md:w-80 lg:w-96 h-auto" />
+            </div>
           ) : (
             <>
-              <h2>Drop your resume for ATS.</h2>
+              <h2 className="text-lg!">Provide the job details and upload your resume to see how well it aligns with the role. ApplyWise evaluates your resume using ATS-style logic and breaks down the results into clear scores and practical insights, so you know exactly what to improve before applying.</h2>
             </>
           )}
           {!isProcessing && (
@@ -160,6 +180,9 @@ const upload = () => {
           )}
         </div>
       </section>
+      <div className="w-screen -mx-4 md:-mx-10 xl:-mx-20">
+        <Footer />
+      </div>
     </main>
   );
 };

@@ -23,7 +23,7 @@ const FaqAccordion = ({ question, answer, defaultOpen = false }: AccordionProps)
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-full flex justify-between items-center p-4 text-left font-medium text-gray-900"
+        className="w-full flex justify-between items-center p-4 text-left font-medium text-gray-900 cursor-pointer"
       >
         <span>{question}</span>
         <span

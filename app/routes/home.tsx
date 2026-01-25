@@ -28,7 +28,7 @@ import { Footer } from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "ApplyWise.io – Smart Resume Checker for Job Applications" },
+    { title: "Smart Resume Checker for Job Applications | ApplyWise.io" },
     {
       name: "description",
       content:
@@ -136,7 +136,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full flex flex-col justify-center items-center">
+        <section id="features" className="w-full flex flex-col justify-center items-center">
           <div className="page-heading">
             <SectionTag icon={<HandShakeIcon />} text="What You Get" />
             <h1 className="text-center">
@@ -145,7 +145,7 @@ export default function Home() {
               to Apply Smarter
             </h1>
           </div>
-          <div className="w-full grid grid-cols-4 gap-4 lg:gap-7 mt-6 md:mt-8 lg:mt-14">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 mt-6 md:mt-8 lg:mt-14">
             <Feature
               icon={<ScoreIcon />}
               title="ATS Compatibility Score"
@@ -184,15 +184,18 @@ export default function Home() {
                 it.
               </h2>
             </div>
-            <div className="resumes-section">
+            <div className="resumes-section relative">
+              <div className="absolute inset-0 w-full z-1 opacity-20 blur-3xl">
+                <img src="/images/bg-elem-1.png" />
+              </div>
               {resumes.map((resume: Resume) => (
                 <ResumeCard key={resume.id} resume={resume} />
               ))}
             </div>
           </section>
         )}
-        <section className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 justify-center items-center">
-          <div className="w-full lg:w-[60%] flex flex-col gap-6 md:gap-8 lg:gap-10">
+        <section id="how-it-works" className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 justify-center items-center">
+          <div className="w-full lg:w-[60%] flex flex-col gap-6 md:gap-8 lg:gap-10"> 
             <div className="page-heading lg:items-start!">
               <SectionTag icon={<CogsIcon />} text="How It Works" />
 
@@ -211,9 +214,11 @@ export default function Home() {
             </div>
             <HowItWorks />
           </div>
-          <div className="w-full lg:w-[40%] h-full bg-gray-300"></div>
+          <div className="w-full lg:w-[40%] flex aspect-[3/3.5] justify-center items-center">
+          <img src="/images/step-cards.png" className="w-full h-auto" />
+          </div>
         </section>
-        <section className="w-full flex flex-col justify-center items-center">
+        <section id="faq" className="w-full flex flex-col justify-center items-center">
           <div className="page-heading mb-6 md:mb-8 lg:mb-10">
             <SectionTag icon={<QuestionIcon />} text="FAQ" />
 

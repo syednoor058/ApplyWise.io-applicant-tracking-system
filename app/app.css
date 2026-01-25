@@ -21,6 +21,7 @@
 html,
 body {
   background: linear-gradient(180deg, #F9FAFB 0%, #EEF4FF 100%);
+  scroll-behavior: smooth;
 }
 
 main {
@@ -35,18 +36,18 @@ h2 {
 }
 
 label {
-  @apply text-dark-200;
+  @apply font-medium;
 }
 input {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+  @apply w-full p-4 shadow rounded-xl focus:outline-none bg-white;
 }
 
 textarea {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+  @apply w-full p-4 shadow rounded-xl focus:outline-none bg-white;
 }
 
 form {
-  @apply flex flex-col items-start gap-8 w-full;
+  @apply flex flex-col items-start w-full;
 }
 
 @layer components {
@@ -54,25 +55,25 @@ form {
     @apply bg-clip-text text-transparent bg-linear-to-r from-[#4F7BFF] via-[#0F172A] to-[#4F7BFF];
   }
   .gradient-border {
-    @apply bg-linear-to-t from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+    @apply bg-linear-to-t from-[#4F7BFF]/15 to-[#22D3EE]/15 p-1 rounded-2xl;
   }
   .primary-button {
-    @apply primary-gradient hover:primary-gradient-hover text-white rounded-full px-4 py-2 cursor-pointer w-full text-sm md:text-base;
+    @apply primary-gradient hover:primary-gradient-hover text-white rounded-full px-4 py-2 cursor-pointer text-sm md:text-base;
   }
   .resume-nav {
     @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
   }
   .resume-summary {
-    @apply flex flex-row items-center justify-center p-4 gap-4;
+    @apply flex flex-row items-center justify-center;
     .category {
-      @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+      @apply flex flex-row gap-2 items-center rounded-2xl w-full justify-between;
     }
   }
   .back-button {
     @apply flex flex-row items-center gap-2 border border-gray-200 rounded-lg p-2 shadow-sm;
   }
   .auth-button {
-    @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-150 max-md:w-full text-3xl font-semibold text-white;
+    @apply primary-gradient rounded-full py-4 px-8 cursor-pointer font-semibold text-white;
   }
   .main-section {
     @apply flex flex-col items-center gap-8;
@@ -93,7 +94,7 @@ form {
   }
 
   .feedback-section {
-    @apply flex flex-col gap-8 w-1/2 px-8 max-lg:w-full py-6;
+    @apply flex flex-col gap-8 py-6;
   }
 
   .navbar {
@@ -105,14 +106,14 @@ form {
   }
 
   .form-div {
-    @apply flex flex-col gap-2 w-full items-start;
+    @apply flex flex-col gap-1.5 w-full items-start;
   }
 
   .uplader-drag-area {
-    @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px];
+    @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-52;
   }
   .uploader-selected-file {
-    @apply flex flex-row gap-0.5 items-center justify-between p-1.5 bg-gray-50 rounded-2xl;
+    @apply flex flex-row gap-0.5 items-center justify-between px-1.5 py-3 bg-white rounded-xl shadow-md;
   }
 }
 

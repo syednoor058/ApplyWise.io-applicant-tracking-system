@@ -1,13 +1,13 @@
 import { Link } from "react-router";
 
-
+const baseUrl = import.meta.env.VITE_BASE_URL;
 const footerLinks = {
   quickLinks: [
-    { name: "Home", href: "/" },
-    { name: "Features", href: "#features" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Developer", href: "#developer" },
+    { name: "Home", href: baseUrl },
+    { name: "Features", href: `${baseUrl}#features` },
+    { name: "How It Works", href: `${baseUrl}#how-it-works` },
+    { name: "FAQ", href: `${baseUrl}#faq` },
+    { name: "Developer", href: "https://syednoor.vercel.app" },
   ],
 };
 
@@ -23,7 +23,7 @@ const NavLinks = ({linkName, url}: {linkName: string, url: string}) => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-background pt-16 pb-8">
+    <footer className="bg-white pt-16 pb-8 rounded-t-2xl z-20 relative">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
           {/* Brand */}
@@ -50,14 +50,17 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="border-t border-[#334155]/30 pt-8 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} ApplyWise.io | All rights reserved.
           </p>
           <p className="text-sm">
-            Developed by <a href="https://syednoor.vercel.app/" target="_blank" className="underline underline-offset-2">Syed Shaeduzzaman Noor</a>
+            Developed by <a href="https://syednoor.vercel.app/" target="_blank" className="underline underline-offset-2 hover:text-[#4F7BFF] transition-colors duration-500 ease-in-out">Syed Shaeduzzaman Noor</a>
           </p>
         </div>
+      </div>
+      <div className="absolute z-40 -top-8 lg:-top-14 right-4 md:right-14 lg:right-20 blur-[3px]">
+        <img src="/images/bg-elem-2.png" alt="Footer Background Element" className="h-28 md:h-40 lg:h-50 w-auto" />
       </div>
     </footer>
   );

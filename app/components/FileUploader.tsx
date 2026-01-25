@@ -1,6 +1,7 @@
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import { formatSize } from '../lib/utils'
+import { AddIcon } from './Icons';
 
 interface FileUploaderProps {
     file: File | null;
@@ -30,7 +31,7 @@ const FileUploader = ({ file, onFileSelect }: FileUploaderProps) => {
 
 
     return (
-        <div className="w-full gradient-border bg-linear-to-b!">
+        <div className={`w-full ${file ? "" : "border border-dashed py-10 px-4 rounded-2xl"}`}>
             <div {...getRootProps()}>
                 <input {...getInputProps()} />
 
@@ -53,17 +54,17 @@ const FileUploader = ({ file, onFileSelect }: FileUploaderProps) => {
                             </button>
                         </div>
                     ): (
-                        <div>
-                            <div className="mx-auto w-16 h-16 flex items-center justify-center mb-2">
-                                <img src="/icons/info.svg" alt="upload" className="size-20" />
+                        <>
+                            <div className="mx-auto flex items-center justify-center mb-2">
+                                <AddIcon />
                             </div>
-                            <p className="text-lg text-gray-500">
+                            <p className="text-base text-gray-500">
                                 <span className="font-semibold">
                                     Click to upload
                                 </span> or drag and drop
                             </p>
-                            <p className="text-lg text-gray-500">PDF (max {formatSize(maxFileSize)})</p>
-                        </div>
+                            <p className="text-xs text-gray-500">PDF (max {formatSize(maxFileSize)})</p>
+                        </>
                     )}
                 </div>
             </div>

@@ -2,15 +2,12 @@ import { Link } from "react-router";
 import ScoreCircle from "~/components/ScoreCircle";
 
 const ResumeCard = ({
-  resume: { id, companyName, companyLogo, jobTitle, feedback, imagePath },
+  resume: { companyName, companyLogo, jobTitle, feedback, imagePath },
 }: {
   resume: Resume;
 }) => {
   return (
-    <Link
-      to={`/resume/${id}`}
-      className="resume-card animate-in fade-in duration-1000 shadow-lg hover:shadow-2xl transition-shadow ease-in-out"
-    >
+    <div className="resume-card animate-in fade-in duration-1000 shadow-lg hover:shadow-2xl transition-shadow ease-in-out relative z-10">
       <div className="resume-card-header">
         <div className="flex flex-col">
           {companyName && (
@@ -47,7 +44,7 @@ const ResumeCard = ({
           </div>
         </div>
       )}
-    </Link>
+    </div>
   );
 };
 export default ResumeCard;

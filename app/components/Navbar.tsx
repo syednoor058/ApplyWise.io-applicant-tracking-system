@@ -14,6 +14,8 @@ const NavLinks = ({linkName, url}: {linkName: string, url: string}) => {
 const Navbar = () => {
   const [primaryButtonText, setPrimaryButtonText] = useState('Get Started');
   const {auth} = usePuterStore();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
   useEffect(() => {
     if(auth.isAuthenticated) {
@@ -25,11 +27,11 @@ const Navbar = () => {
     <nav className='navbar pl-4'>
         <Link to='/' className='text-xl md:text-2xl font-bold text-gradient'>ApplyWise.io</Link>
         <div className='hidden lg:flex flex-row gap-8'>
-          <NavLinks linkName='Home' url='/' />
-          <NavLinks linkName='Features' url='/' />
-          <NavLinks linkName='How It Works' url='/' />
-          <NavLinks linkName='FAQ' url='/' />
-          <NavLinks linkName='Developer' url='/' />
+          <NavLinks linkName='Home' url={baseUrl} />
+          <NavLinks linkName='Features' url={`${baseUrl}#features`} />
+          <NavLinks linkName='How It Works' url={`${baseUrl}#how-it-works`} />
+          <NavLinks linkName='FAQ' url={`${baseUrl}#faq`} />
+          <NavLinks linkName='Developer' url='https://syednoor.vercel.app' />
         </div>
         <Link to='/upload' className='primary-button w-fit'>{primaryButtonText}</Link>
     </nav>
