@@ -323,6 +323,11 @@ Rules:
 - Do NOT include explanations
 - Do NOT include markdown
 - Output JSON ONLY
+
+IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
 `;
 };
 
@@ -364,11 +369,20 @@ Rules:
 - scoreImpact must be a realistic +2 to +6
 - No markdown, no explanations outside JSON
 - Output JSON ONLY
+
+IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
 `;
 };
 
-export const getToneAndStylePrompt = (jobTitle: string, jobDescription: string, extractedText: string) => {
-    return `
+export const getToneAndStylePrompt = (
+  jobTitle: string,
+  jobDescription: string,
+  extractedText: string,
+) => {
+  return `
 You are a professional resume writing coach.
 
 Analyze ONLY the tone, clarity, and professionalism of the resume language.
@@ -408,11 +422,20 @@ Rules:
   - Clarity and confidence
 - Suggestions must include rewritten sentence examples
 - Output JSON ONLY
-`;
-}
 
-export const getContentPrompt = (jobTitle: string, jobDescription: string, extractedText: string) => {
-    return `You are a resume content strategist.
+IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
+`;
+};
+
+export const getContentPrompt = (
+  jobTitle: string,
+  jobDescription: string,
+  extractedText: string,
+) => {
+  return `You are a resume content strategist.
 
 Analyze ONLY the relevance, impact, and effectiveness of the resume content with the job description.
 
@@ -452,11 +475,15 @@ Rules:
 - exampleFix must be realistic resume-ready bullets
 - Output JSON ONLY
 
+IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
 `;
-}
+};
 
 export const getStructurePrompt = (extractedText: string) => {
-    return `
+  return `
 You are an ATS resume formatting expert.
 
 Analyze ONLY the structure, layout, and readability of the resume.
@@ -490,11 +517,20 @@ Rules:
   - ATS-safe formatting
 - Suggestions must specify restructuring guidance
 - Output JSON ONLY
-`;
-}
 
-export const getSkillsPrompt = (jobTitle: string, jobDescription: string, extractedText: string) => {
-    return `
+IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
+`;
+};
+
+export const getSkillsPrompt = (
+  jobTitle: string,
+  jobDescription: string,
+  extractedText: string,
+) => {
+  return `
     You are a hiring manager and ATS keyword analyst.
     
     Analyze ONLY skill alignment between the resume and the job description.
@@ -535,5 +571,10 @@ export const getSkillsPrompt = (jobTitle: string, jobDescription: string, extrac
     - exampleFix MUST show how to add skills naturally
     - No hallucinated skills
     - Output JSON ONLY
-    `;
-}
+    
+    IMPORTANT JSON RULES:
+- Do NOT use unescaped double quotes (") inside strings
+- If you must include quotes, escape them as \"
+- Prefer single quotes (') for examples inside text
+`;
+};
