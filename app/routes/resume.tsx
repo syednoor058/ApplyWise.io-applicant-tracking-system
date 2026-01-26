@@ -21,7 +21,8 @@ export const meta = () => [
 const Resume = () => {
   const { auth, isLoading, fs, kv } = usePuterStore();
   const { id } = useParams();
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const [resumeUrl, setResumeUrl] = useState("");
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const navigate = useNavigate();
@@ -34,25 +35,35 @@ const Resume = () => {
   useEffect(() => {
     const loadResume = async () => {
       const resume = await kv.get(`resume:${id}`);
-
       if (!resume) return;
 
       const data = JSON.parse(resume);
 
+      /* ---------- PDF ---------- */
       const resumeBlob = await fs.read(data.resumePath);
-      if (!resumeBlob) return;
+      if (!resumeBlob) {
+        console.error("Failed to read resume PDF");
+        return;
+      }
 
       const pdfBlob = new Blob([resumeBlob], { type: "application/pdf" });
-      const resumeUrl = URL.createObjectURL(pdfBlob);
-      setResumeUrl(resumeUrl);
+      setResumeUrl(URL.createObjectURL(pdfBlob));
 
-      const imageBlob = await fs.read(data.imagePath);
-      if (!imageBlob) return;
-      const imageUrl = URL.createObjectURL(imageBlob);
-      setImageUrl(imageUrl);
+      /* ---------- IMAGE PREVIEW (FIRST PAGE) ---------- */
+      if (Array.isArray(data.imagePaths) && data.imagePaths.length > 0) {
+        const urls: string[] = [];
+
+        for (const path of data.imagePaths) {
+          const blob = await fs.read(path);
+          if (blob) {
+            urls.push(URL.createObjectURL(blob));
+          }
+        }
+
+        setImageUrls(urls);
+      }
 
       setFeedback(data.feedback);
-      console.log({ resumeUrl, imageUrl, feedback: data.feedback });
     };
 
     loadResume();
@@ -78,7 +89,7 @@ const Resume = () => {
     <main className="w-full bg-[url('/images/bg-main.svg')] bg-cover bg-no-repeat min-h-screen main-section">
       <Navbar />
       {feedback ? (
-        <section className="w-full flex flex-col justify-center items-center gap-10 md:gap-14 lg:gap-20">
+        <section className="w-full flex flex-col justify-center items-center gap-10 md:gap-14 lg:gap-20 animate-in fade-in duration-1000">
           <div className="page-heading">
             <SectionTag
               icon={<MagicIcon />}
@@ -93,15 +104,26 @@ const Resume = () => {
           </div>
           <div className="flex flex-col w-full lg:flex-row gap-5 lg:gap-8">
             <section className="w-full lg:w-[40%] feedback-section">
-              {imageUrl && resumeUrl && (
-                <div className="animate-in fade-in duration-1000 gradient-border p-1">
-                  <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={imageUrl}
-                      className="w-full h-full object-contain rounded-2xl"
-                      title="resume"
-                    />
-                  </a>
+              {imageUrls.length > 0 && resumeUrl && (
+                <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
+                  {imageUrls.map((imageUrl) => (
+                    <div
+                      key={imageUrl}
+                      className="animate-in fade-in duration-1000 gradient-border p-1"
+                    >
+                      <a
+                        href={resumeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src={imageUrl}
+                          className="w-full h-full object-contain rounded-2xl"
+                          title="resume"
+                        />
+                      </a>
+                    </div>
+                  ))}
                 </div>
               )}
             </section>

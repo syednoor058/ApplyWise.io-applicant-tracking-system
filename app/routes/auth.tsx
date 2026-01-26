@@ -28,7 +28,7 @@ const auth = () => {
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover min-h-screen flex flex-col justify-center items-center px-4 md:px-10 lg:px-20 gap-10 md:gap-14">
       <Navbar />
-      <div className="w-full flex flex-col gap-20 md:gap-24 xl:gap-20 items-center justify-center">
+      <div className="w-full flex flex-col gap-20 md:gap-24 xl:gap-20 items-center justify-center animate-in fade-in duration-1000">
         <section className="gradient-border shadow-md">
           <div className="max-w-2xl p-5 flex flex-col gap-8 rounded-2xl bg-white">
             {isLoading ? (

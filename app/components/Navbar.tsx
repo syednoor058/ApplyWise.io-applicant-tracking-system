@@ -33,7 +33,7 @@ const Navbar = () => {
           <NavLinks linkName='FAQ' url={`${baseUrl}#faq`} />
           <NavLinks linkName='Developer' url='https://syednoor.vercel.app' />
         </div>
-        <Link to='/upload' className='primary-button w-fit'>{primaryButtonText}</Link>
+        <Link to={`/uploads`} className='primary-button w-fit'>{primaryButtonText}</Link>
     </nav>
   )
 }

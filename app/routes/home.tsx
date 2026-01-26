@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-contain bg-no-repeat min-h-screen">
       <Navbar />
-      <div className="flex flex-col gap-20 md:gap-24 xl:gap-36 py-8 md:py-10 lg:py-20">
+      <div className="flex flex-col gap-20 md:gap-24 xl:gap-36 py-8 md:py-10 lg:py-20 animate-in fade-in duration-1000">
         <section className="main-section">
           <div className="page-heading">
             <SectionTag
@@ -136,7 +136,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="features" className="w-full flex flex-col justify-center items-center">
+        <section
+          id="features"
+          className="w-full flex flex-col justify-center items-center"
+        >
           <div className="page-heading">
             <SectionTag icon={<HandShakeIcon />} text="What You Get" />
             <h1 className="text-center">
@@ -194,8 +197,11 @@ export default function Home() {
             </div>
           </section>
         )}
-        <section id="how-it-works" className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 justify-center items-center">
-          <div className="w-full lg:w-[60%] flex flex-col gap-6 md:gap-8 lg:gap-10"> 
+        <section
+          id="how-it-works"
+          className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 justify-center items-center"
+        >
+          <div className="w-full lg:w-[60%] flex flex-col gap-6 md:gap-8 lg:gap-10">
             <div className="page-heading lg:items-start!">
               <SectionTag icon={<CogsIcon />} text="How It Works" />
 
@@ -215,10 +221,13 @@ export default function Home() {
             <HowItWorks />
           </div>
           <div className="w-full lg:w-[40%] flex aspect-[3/3.5] justify-center items-center">
-          <img src="/images/step-cards.png" className="w-full h-auto" />
+            <img src="/images/step-cards.png" className="w-full h-auto" />
           </div>
         </section>
-        <section id="faq" className="w-full flex flex-col justify-center items-center">
+        <section
+          id="faq"
+          className="w-full flex flex-col justify-center items-center"
+        >
           <div className="page-heading mb-6 md:mb-8 lg:mb-10">
             <SectionTag icon={<QuestionIcon />} text="FAQ" />
 
