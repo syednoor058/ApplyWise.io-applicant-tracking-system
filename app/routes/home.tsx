@@ -57,7 +57,7 @@ export default function Home() {
             </h2>
             <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center">
               <Link
-                to="/upload"
+                to="/uploads"
                 className="primary-button px-7 py-3 text-xl animate-in fade-in duration-1000 flex gap-2 items-center"
               >
                 <span>
