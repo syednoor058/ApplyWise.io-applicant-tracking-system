@@ -51,10 +51,18 @@ const auth = () => {
                   </div>
                 ) : (
                   <div className="flex flex-col justify-center items-center text-center gap-4">
-                    <h1 className="text-3xl!">Sign In to Continue</h1>
+                    <div className="flex flex-row items-center gap-1">
+                      <h1 className="text-2xl! md:text-3xl!">Continue With</h1>
+                      <img src="/logos/puter.jpg" className="h-7 w-7 ml-2" />
+                      <h1 className="font-bold text-2xl! md:text-3xl! text-[#0010d9]!">
+                        Puter
+                      </h1>
+                    </div>
                     <h2 className="text-lg!">
-                      Log in using your Puter account to securely upload your
-                      resume, run analyses, and access your reports anytime.
+                      Sign in using your own, or the provided shared{" "}
+                      <span className="font-bold">Puter</span> account, to
+                      securely upload your resume, run analyses, and access your
+                      reports anytime.
                     </h2>
                   </div>
                 )}
@@ -78,7 +86,7 @@ const auth = () => {
                         <span>
                           <LogoutIcon />
                         </span>
-                        Log Out
+                        Sign Out
                       </p>
                     </button>
                   ) : (
@@ -86,12 +94,25 @@ const auth = () => {
                       className="primary-button px-10!"
                       onClick={auth.signIn}
                     >
-                      <p>Log In</p>
+                      <p>Sign In</p>
                     </button>
                   )}
                 </>
               )}
             </div>
+
+            {!auth.isAuthenticated && (
+              <div className="w-full text-center mt-6">
+                <p>
+                  <span className="font-light italic">Email or username:</span>{" "}
+                  devionark@gmail.com
+                </p>
+                <p>
+                  <span className="font-light italic">Password:</span>{" "}
+                  Fuzzybump@058
+                </p>
+              </div>
+            )}
           </div>
         </section>
         <div className="w-screen -mx-4 md:-mx-10 lg:-mx-20">
